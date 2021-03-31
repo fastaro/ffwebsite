@@ -26,7 +26,7 @@ SECRET_KEY = 'btd2yma5)cb@)3f28n!_ur$$l$ryb1*a-(dzl7+ht^h_7ba0s&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://thawing-temple-77223.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
