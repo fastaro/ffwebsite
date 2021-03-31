@@ -1,0 +1,109 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG Basics</title>
+</head>
+<style>
+
+  g {
+    align-content: center;
+
+  }
+
+  label {
+    color: white;
+  }
+
+  .frame {
+    fill: none;
+    stroke: #000;
+  }
+  
+  .axis text {
+    font: 10px sans-serif;
+  }
+  
+  .axis line,
+  .axis circle {
+    fill: none;
+    stroke: #777;
+    stroke-dasharray: 1,4;
+
+  }
+  
+  .axis :last-of-type circle {
+    stroke: #333;
+    stroke-dasharray: none;
+  }
+  
+  .line {
+    fill: none;
+    stroke: red;
+    stroke-width: 1.5px;
+    stroke-linejoin: "round";
+
+
+  }
+
+.test {stroke-opacity: .5;}
+
+.normal {mix-blend-mode: normal;}
+.multiply {mix-blend-mode: multiply;}
+.screen {mix-blend-mode: screen;}
+.overlay {mix-blend-mode: overlay;}
+.darken {mix-blend-mode: darken;}
+.lighten {mix-blend-mode: lighten;}
+.color-dodge {mix-blend-mode: color-dodge;}
+.color-burn {mix-blend-mode: color-burn;}
+.difference {mix-blend-mode: difference;}
+.exclusion {mix-blend-mode: exclusion;}
+.hue {mix-blend-mode: hue;}
+.saturation {mix-blend-mode: saturation;}
+.color {mix-blend-mode: color;}
+.luminosity {mix-blend-mode: luminosity;}
+
+  
+  </style>
+
+<body>
+  
+
+
+<div id="toolbar" style="background-color: black; font-family: Helvetica Neue;" onMouseOver="document.getElementById('toolbar').style.opacity = 1" onMouseOut="document.getElementById('toolbar').style.opacity = 0">
+   <label for="p">P:</label>
+    <input type="number" id="p" value="3" style="width:90px">
+    <label for="q">Q:</label>
+    <input type="number" id="q" value="2" style="width:90px">
+    
+ 
+    <label for="nmax">Max Number:</label>
+    <input type="number" id="nmax" value="200" style="width:90px">
+    <label for="mod">Mod:</label>
+    <input type="number" id="mod" value="1" style="width:90px">
+    <label for="pathcolor">Line:</label>
+    <input type="color" id="pathcolor" value="#33CC33">
+    <label for="background-color">Background:</label>
+    <input type="color" id="background-color" value="#000000">
+    <label for="k"># Harmonics:</label>
+    <input type="number" id="k" value="34" style="width:90px">
+    <label for="opacity">Opacity:</label>
+    <input type="number" id="opacity" value="0.1" style="width:45px">
+    <button onclick="myFunction()">Update</button>
+    <button onclick="increaseQ()">Increase Q</button>
+    <button onclick="decreaseQ()">Decrease Q</button>
+<br>
+<br>
+<br>
+  </div>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="{% static "js/snap.svg.js" %}"></script>    
+    <script src="{% static "js/index.js" %}"></script>  
+
+    
+</body>
+</html>
+
