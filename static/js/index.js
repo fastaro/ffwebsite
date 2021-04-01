@@ -53,6 +53,22 @@ function myFunction() {
   }
   }
 
+  function increaseP(){
+    let tp = parseFloat(document.getElementById("p").value);
+    tp = tp+1;
+    document.getElementById("p").value = tp;
+    myFunction();
+  }
+
+  function decreaseP(){
+    let tp = parseFloat(document.getElementById("p").value);
+    if (tp > 1){
+    tp = tp-1;
+    document.getElementById("p").value = tp;
+    myFunction();
+  }
+  }
+
   function increaseK(){
     let tk = parseInt(document.getElementById("k").value);
     tk = tk+1;
