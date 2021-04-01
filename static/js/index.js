@@ -53,8 +53,11 @@ function myFunction() {
   }
   }
 
-  function OverFunction(){
-    document.getElementById("toolbar").style.opacity = 1;
+  function increaseK(){
+    let tk = parseInt(document.getElementById("k").value);
+    tk = tk+1;
+    document.getElementById("k").value = k;
+    myFunction();
   }
 
 
