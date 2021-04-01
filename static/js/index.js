@@ -56,7 +56,7 @@ function myFunction() {
   function increaseK(){
     let tk = parseInt(document.getElementById("k").value);
     tk = tk+1;
-    document.getElementById("k").value = k;
+    document.getElementById("k").value = tk;
     myFunction();
   }
 
