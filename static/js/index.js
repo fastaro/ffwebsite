@@ -204,7 +204,7 @@ svg.append("path")
 
     function final(patharray) {
       pathappend = '';
-      for (i = 0; i < patharray.length; i++) {
+      for (i = 1; i < patharray.length; i++) {
         pathappend += `<path d="${patharray[i]}" stroke-width="2" stroke='${pathcolor}' stroke-opacity="${opacity}" fill=none> 
         </path>`
       }
@@ -235,7 +235,7 @@ myFunction();
 
   function fourierSeries(n_max,x, globalT , q){
     var psums = 0;
-    for (n = 1; n < n_max; n++)
+    for (let n = 1; n < n_max; n++)
         psums = psums +(an(n, q)*(Math.cos((Math.PI*n*x)/globalT))) +(bn(n, q)*Math.sin(((Math.PI*n*x)/globalT)))
     return psums
   }
