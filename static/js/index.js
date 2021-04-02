@@ -86,8 +86,8 @@ const update = (data) => {
 
 d3.select("svg").remove();
 
-let width = 600,
-    height = 600,
+let width = 500,
+    height = 500,
     radius = Math.min(width, height) / 2 - 30;
 
 let r = d3.scaleLinear()
