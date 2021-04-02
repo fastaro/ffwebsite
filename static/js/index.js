@@ -205,7 +205,7 @@ svg.append("path")
     function final(patharray) {
       pathappend = '';
       for (i = 1; i < patharray.length; i++) {
-        pathappend += `<path d="${patharray[i]}" stroke-width="2" stroke='${pathcolor}' stroke-opacity="${opacity}" fill=none> 
+        pathappend += `<path d="${patharray[i]}" stroke-width="2" stroke="${pathcolor}" stroke-opacity="${opacity}" fill=none> 
         </path>`
       }
       return pathappend;
