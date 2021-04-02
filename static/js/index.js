@@ -86,12 +86,12 @@ const update = (data) => {
 
 d3.select("svg").remove();
 
-let width = 500,
+let width = 650,
     height = 500,
     radius = Math.min(width, height) / 2 - 30;
 
 let r = d3.scaleLinear()
-    .domain([1, q*1.7])
+    .domain([1, q*1.3])
     .range([0, radius]);
 
 let line = d3.lineRadial()
