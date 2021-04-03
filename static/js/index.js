@@ -128,7 +128,7 @@ svg.append("path")
         marr[0] = 'M' + marr[0];
         marr[1] = marr[1].toString()
         larr[0] = 'l' + larr[0];
-        path_accumulater.push([marr, larr].toString());
+        path_accumulater.push([marr, larr].toString().replaceAll(',', ' '));
         
       }
       return path_accumulater
