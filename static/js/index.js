@@ -10,10 +10,8 @@ function strip(number) {
   return (parseFloat(number).toPrecision(2));
 }
 
-// (q-1)/Math.log(q) + fourierSeries(100,t,globalT,q)
 
 function myFunction() {
-  // document.g.style.align = "center"; 
   document.body.style.backgroundColor = document.getElementById("background-color").value;
   pathcolor = document.getElementById("pathcolor").value;
   p = parseFloat(document.getElementById("p").value);
@@ -22,7 +20,6 @@ function myFunction() {
   opacity = parseFloat(document.getElementById("opacity").value);
   nmax = parseInt(document.getElementById("nmax").value);
 
-  console.log(k);
 
   mod = document.getElementById("mod").value;
   globalT = Math.log(q)/ Math.log(p);
@@ -32,7 +29,7 @@ function myFunction() {
   var data = d3.range(0, nmax, mod).map(function(t) {
     return [t, (q-1)/Math.log(q) + fourierSeries(k,t,globalT,q)];
   });
- // console.log(q , p);
+
   update(data);
   }
 
@@ -88,7 +85,7 @@ d3.select("svg").remove();
 
 let width = 650,
     height = 500,
-    radius = Math.min(width, height) / 2 - 30;
+    radius = Math.min(width, height) / 2;
 
 let r = d3.scaleLinear()
     .domain([1, q*1.3])
@@ -104,39 +101,6 @@ let svg = d3.select("body").append("svg")
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-// var gr = svg.append("g")
-//     .attr("class", "r axis")
-//   .selectAll("g")
-//     .data(r.ticks(5).slice(1))
-//   .enter().append("g");
-
-// gr.append("circle")
-//     .attr("r", r);
-
-// gr.append("text")
-//     .attr("y", function(d) { return -r(d) - 4; })
-//     .attr("transform", "rotate(15)")
-//     .style("text-anchor", "middle")
-//     .text(function(d) { return d; });
-
-// var ga = svg.append("g")
-//     .attr("class", "a axis")
-//   .selectAll("g")
-//     .data(d3.range(0, 360, 30))
-//   .enter().append("g")
-//     .attr("transform", function(d) { return "rotate(" + -d + ")"; });
-
-// ga.append("line")
-//     .attr("x2", radius)
-
-    
-
-// ga.append("text")
-//     .attr("x", radius + 6)
-//     .attr("dy", ".35em")
-//     .style("text-anchor", function(d) { return d < 270 && d > 90 ? "end" : null; })
-//     .attr("transform", function(d) { return d < 270 && d > 90 ? "rotate(180 " + (radius + 6) + ",0)" : null; })
-//     .text(function(d) { return d + "°"; });
 
 
 
@@ -146,29 +110,9 @@ svg.append("path")
     .attr("d", line);
     //var complex_path = document.getElementsByTagName("path")[0].getAttribute('d');
     document.getElementsByTagName("path")[0].setAttribute('id', 'chart');
+    document.getElementsByTagName("g")[0].setAttribute('id', 'chartholder');
     complex_path2 = Snap.path.toRelative(document.getElementsByTagName("path")[0].getAttribute('d')).toString().replace(/([l])/g, ' $1');
-    // complex_path2 = complex_path2.replace(/([l])/g, ' $1');
-    //console.log(complex_path);
 
-    // var sub_paths = parse_path(complex_path);
-    // var sheet2 = Snap('#chart');
-
-
-    // var teststring = 'M0,0 l59.433,-92.562 l-70.877,67.556 l-138.292,3.662 l111.539,65.57'
-    // var compare = 'M0,0l59.433,-92.562l-70.877,67.556l-138.292,3.662'
-    // var comparetest = compare.replace(/([l])/g, ' $1');
-
-    // function parse_path(path) {
-    //     var path_regexp = /[mM][^mM]+/g,
-    //         match,
-    //         sub_paths = [];
-        
-    //     while((match = path_regexp.exec(path)) !== null) {
-    //         sub_paths.push(match[0]);
-    //     };
-        
-    //     return sub_paths;
-    // };
 
     function parse_path(path) {
       var newpath = path.split(',');
@@ -205,17 +149,18 @@ svg.append("path")
     function final(patharray) {
       pathappend = '';
       for (i = 1; i < patharray.length; i++) {
-        pathappend += `<path d="${patharray[i]}" stroke-width="2" stroke="${pathcolor}" stroke-opacity="${opacity}" fill=none> 
+        pathappend += `<path d="${patharray[i]}" stroke-width="2" stroke="${pathcolor}" stroke-opacity="${opacity}" fill=none/> 
         </path>`
       }
       return pathappend;
     }
 
-   // console.log(final(path_maker(parse_path(complex_path2))));
-    // console.log(comparetest);
-    // console.log(compare);
+    d3.select("path").remove();
+
+
+    document.getElementsByTagName("g")[0].innerHTML = final(path_maker(parse_path(complex_path2)));
+
     
-  document.getElementsByTagName("path")[0].outerHTML = final(path_maker(parse_path(complex_path2)));
 
   };
 
