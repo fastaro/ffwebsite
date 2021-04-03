@@ -1,16 +1,4 @@
 
-let p = 3;
-let q = 2;
-let k = 34;
-
-let mod = 1;
-let nmax = 200;
-
-function strip(number) {
-  return (parseFloat(number).toPrecision(2));
-}
-
-
 function myFunction() {
   document.body.style.backgroundColor = document.getElementById("background-color").value;
   pathcolor = document.getElementById("pathcolor").value;
