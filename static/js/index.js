@@ -19,7 +19,7 @@ function myFunction() {
   });
 
   update(data);
-  }
+  };
 
 
   function increaseQ(){
@@ -27,7 +27,7 @@ function myFunction() {
     tq = tq+1;
     document.getElementById("q").value = tq;
     myFunction();
-  }
+  };
 
   function decreaseQ(){
     let tq = parseFloat(document.getElementById("q").value);
@@ -36,14 +36,14 @@ function myFunction() {
     document.getElementById("q").value = tq;
     myFunction();
   }
-  }
+  };
 
   function increaseP(){
     let tp = parseFloat(document.getElementById("p").value);
     tp = tp+1;
     document.getElementById("p").value = tp;
     myFunction();
-  }
+  };
 
   function decreaseP(){
     let tp = parseFloat(document.getElementById("p").value);
@@ -52,14 +52,14 @@ function myFunction() {
     document.getElementById("p").value = tp;
     myFunction();
   }
-  }
+  };
 
   function increaseK(){
     let tk = parseInt(document.getElementById("k").value);
     tk = tk+1;
     document.getElementById("k").value = tk;
     myFunction();
-  }
+  };
 
 
 
@@ -142,14 +142,9 @@ svg.append("path")
       }
       return pathappend;
     }
-
     d3.select("path").remove();
 
-
     document.getElementsByTagName("g")[0].innerHTML = final(path_maker(parse_path(complex_path2)));
-
-    
-
   };
 
 myFunction();
@@ -158,19 +153,18 @@ myFunction();
 // Fourier Series
   function an(n , q){
       return ((q-1)*(Math.cos(n*Math.PI)+1)*Math.log(q,Math.E))/(Math.PI**2*n**2+Math.log(q,Math.E)**2);
-  }
+  };
 
   function bn(n , q){
-
       return -(Math.PI*n*(q-1)*Math.cos(Math.PI*n)+1)/(Math.PI**2*n**2+Math.log(q,Math.E)**2)
 
-  }
+  };
 
   function fourierSeries(n_max,x, globalT , q){
     var psums = 0;
     for (let n = 1; n < n_max; n++)
         psums = psums +(an(n, q)*(Math.cos((Math.PI*n*x)/globalT))) +(bn(n, q)*Math.sin(((Math.PI*n*x)/globalT)))
     return psums
-  }
+  };
 
 
